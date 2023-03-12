@@ -3,7 +3,7 @@ import Header from "./components/Header"
 
 export default function App() {
 	return (
-		<div className="container">
+		<div className="container w-375">
 			<Header />
 		</div>
 	)
