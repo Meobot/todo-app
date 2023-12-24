@@ -10,10 +10,8 @@ export type Todo = {
 };
 
 function App() {
-	// State to store all todos
 	const [todos, setTodos] = useState<Todo[]>([]);
 
-	// Function to generate a UUID
 	function generateUUID() {
 		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
 			/[xy]/g,
@@ -37,7 +35,6 @@ function App() {
 	};
 
 	const deleteTodo = (id: string) => {
-		// Update the state to add the new todo to the array
 		setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
 	};
 
