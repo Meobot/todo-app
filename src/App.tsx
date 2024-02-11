@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
@@ -10,7 +10,14 @@ export type Todo = {
 };
 
 function App() {
-	const [todos, setTodos] = useState<Todo[]>([]);
+	const [todos, setTodos] = useState<Todo[]>(() => {
+		const storedTodos = localStorage.getItem("todos");
+		return storedTodos ? JSON.parse(storedTodos) : [];
+	});
+
+	useEffect(() => {
+		localStorage.setItem("todos", JSON.stringify(todos));
+	}, [todos]);
 
 	function generateUUID() {
 		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
