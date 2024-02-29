@@ -67,6 +67,7 @@ function App() {
 			<TodoForm addTodo={addTodo} />
 			<TodoList
 				todos={todos}
+				setTodos={setTodos}
 				deleteTodo={deleteTodo}
 				toggleTodo={toggleTodo}
 				updateTodoTitle={updateTodoTitle}
